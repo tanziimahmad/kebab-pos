@@ -17,6 +17,9 @@ module.exports = {
           DEFAULT: "#FFF",
         },
       },
+      dropShadow: {
+        DEFAULT: "0px 8px 24px 0px rgba(234, 124, 105, 0.30)",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
