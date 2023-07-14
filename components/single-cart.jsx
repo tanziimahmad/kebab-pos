@@ -4,7 +4,7 @@ import { RiDeleteBin7Line } from "react-icons/ri";
 
 const SingleCart = () => {
   return (
-    <div className="flex justify-between w-2/6 text-neutral item-center">
+    <div className="flex justify-between w-full text-neutral item-center">
       <div className="w-full">
         <div className="flex items-center justify-between w-full">
           <div className="flex items-center">
