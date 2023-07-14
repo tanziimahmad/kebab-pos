@@ -4,9 +4,9 @@ import { RiDeleteBin7Line } from "react-icons/ri";
 
 const SingleCart = () => {
   return (
-    <div className="text-neutral w-2/6 flex item-center justify-between">
+    <div className="flex justify-between w-2/6 text-neutral item-center">
       <div className="w-full">
-        <div className="flex justify-between items-center w-full">
+        <div className="flex items-center justify-between w-full">
           <div className="flex items-center">
             <Image src="/test-1.jpeg" alt="image" width={56} height={56} />
             <div className="mx-2">
@@ -14,7 +14,7 @@ const SingleCart = () => {
               <p> 2:00 price</p>
             </div>
           </div>
-          <div className="p-4 py-2 bg-primary rounded">21</div>
+          <div className="p-4 py-2 rounded bg-primary">21</div>
         </div>
         <input className="p-4 py-2 bg-[#393c49] w-full rounded-lg" />
       </div>
@@ -25,7 +25,7 @@ const SingleCart = () => {
         <div className="w-max">
           <button
             type="button"
-            className="border border-red-500 rounded-lg p-2"
+            className="p-2 border border-red-500 rounded-lg"
           >
             <RiDeleteBin7Line className="text-lg text-red-500" />
           </button>

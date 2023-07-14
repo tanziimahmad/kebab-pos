@@ -7,7 +7,6 @@ const Card = ({ item }) => {
       key={item.id}
       className="bg-primary  rounded-3xl bg-navy-700 text-white min-h-[250px]"
     >
-      test
       <div className="text-center">
         <div className="relative w-full h-40 overflow-hidden rounded-t-3xl">
           <Image
