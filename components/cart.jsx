@@ -1,6 +1,30 @@
+import useUtility from "@/hooks/useUtilityContext";
 import SingleCart from "./single-cart";
 
 export default function Cart() {
+  const { cartData, setCartData } = useUtility();
+
+  const handleDeleteToCard = (id) => {
+    const updatedCartData = cartData.map((item) => {
+      if (item.id === id) {
+        if (item.quantity === 1) {
+          // Remove the item from the cart
+          return null;
+        }
+        const updatedQuantity = item.quantity - 1;
+        const updatedTotalPrice = updatedQuantity * item.price;
+        return {
+          ...item,
+          quantity: updatedQuantity,
+          totalPrice: updatedTotalPrice,
+        };
+      }
+      return item;
+    });
+
+    const filteredCartData = updatedCartData.filter((item) => item !== null);
+    setCartData(filteredCartData);
+  };
   return (
     <div className="h-full p-6 text-neutral">
       <div className="grid grid-cols-6 gap-4 my-6 ">
@@ -13,11 +37,20 @@ export default function Cart() {
         </div>
       </div>
       <div className="py-6 overflow-y-auto border-y border-primary h-4/6">
-        <SingleCart />
-        <SingleCart />
-        <SingleCart />
-        <SingleCart />
-        <SingleCart />
+        {cartData.map((data) => {
+          const { id, name, price, totalPrice, quantity } = data;
+          return (
+            <SingleCart
+              key={id}
+              id={id}
+              title={name}
+              price={price}
+              quantity={quantity}
+              totalPrice={totalPrice}
+              handleDeleteToCard={handleDeleteToCard}
+            />
+          );
+        })}
       </div>
       <div className="py-6">
         <div className="flex items-center justify-between">
