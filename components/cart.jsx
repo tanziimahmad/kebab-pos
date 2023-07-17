@@ -1,8 +1,10 @@
 import useUtility from "@/hooks/useUtilityContext";
+import { BsArrowLeft } from "react-icons/bs";
 import SingleCart from "./single-cart";
 
 export default function Cart() {
-  const { cartData, setCartData } = useUtility();
+  const { cartData, setCartData, setIsOpenPayment, isOpenPayment } =
+    useUtility();
 
   const handleDeleteToCard = (id) => {
     const updatedCartData = cartData.map((item) => {
@@ -27,6 +29,17 @@ export default function Cart() {
   };
   return (
     <div className="h-full p-6 text-neutral">
+      <div>
+        {isOpenPayment && (
+          <button
+            type="button"
+            onClick={() => setIsOpenPayment(false)}
+            className="text-2xl"
+          >
+            <BsArrowLeft />
+          </button>
+        )}
+      </div>
       <div className="grid grid-cols-6 gap-4 my-6 ">
         <div className="flex items-center justify-between w-full col-span-5">
           <p>Item</p>
@@ -62,12 +75,15 @@ export default function Cart() {
           <p className="text-right"> $ 21,03</p>
         </div>
         <div className="mt-10">
-          <button
-            type="button"
-            className="bg-[#EA7C69] w-full p-4 rounded-md hover:shadow"
-          >
-            Continue to Payment
-          </button>
+          {!isOpenPayment && (
+            <button
+              onClick={() => setIsOpenPayment(true)}
+              type="button"
+              className="bg-[#EA7C69] w-full p-4 rounded-md hover:shadow"
+            >
+              Continue to Payment
+            </button>
+          )}
         </div>
       </div>
     </div>
