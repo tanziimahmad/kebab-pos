@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { RiDeleteBin7Line } from "react-icons/ri";
+import InputField from "./input-field";
 
 const ItemDetails = ({ title, price, quantity }) => {
   return (
@@ -40,7 +41,7 @@ const SingleCart = ({
         <p>${totalPrice}</p>
       </div>
       <div className="col-span-5">
-        <input className="p-4 py-2 bg-[#393c49] w-full rounded-lg" />
+        <InputField />
       </div>
       <div className="w-max place-self-center">
         <button
